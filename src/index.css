@@ -1,0 +1,353 @@
+:root {
+  --primary: #0a58ca;
+  --primary-hover: #084298;
+  --secondary: #e9ecef;
+  --text-main: #212529;
+  --text-muted: #6c757d;
+  --bg-main: #f4f7f6;
+  --bg-card: #ffffff;
+  --border: #dee2e6;
+  --success: #198754;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --info: #0dcaf0;
+  --font-family: 'Inter', sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background-color: white;
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background-color: var(--secondary);
+}
+
+/* Card styles */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+/* Badge styles */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badge-placed {
+  background-color: #f8f9fa;
+  color: var(--text-muted);
+}
+.badge-placed::before { background-color: var(--text-muted); }
+
+.badge-packed {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.badge-packed::before { background-color: var(--warning); }
+
+.badge-shipped {
+  background-color: #cff4fc;
+  color: #055160;
+}
+.badge-shipped::before { background-color: var(--info); }
+
+.badge-out-for-delivery {
+  background-color: #e0cffc;
+  color: #400560;
+}
+.badge-out-for-delivery::before { background-color: #7b05ca; }
+
+.badge-delivered {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+.badge-delivered::before { background-color: var(--success); }
+
+/* Table styles */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Form inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.input-control {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+
+.input-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(10, 88, 202, 0.2);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow-md);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Notifications */
+.notifications-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: white;
+  border-left: 4px solid var(--primary);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.toast.success { border-left-color: var(--success); }
+.toast.info { border-left-color: var(--primary); }
+
+/* Dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid var(--border);
+  z-index: 10;
+  width: 200px;
+  overflow: hidden;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #004085;
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.dropdown-item.active {
+  background-color: #e9ecef;
+  font-weight: 500;
+}
+
+/* Utility */
+.text-muted { color: var(--text-muted); }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.mt-4 { margin-top: 16px; }
+
+/* Pulse animation for live indicator */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Leaflet map z-index fix - prevent map controls going over modals */
+.leaflet-container {
+  z-index: 0;
+}
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-map-pane svg,
+.leaflet-map-pane canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+  position: absolute;
+}
+
+@media print {
+  /* Hide sidebars, buttons, headers, footers and modals during print */
+  .no-print, nav, header, aside, .btn, button, .dropdown-menu {
+    display: none !important;
+  }
+  
+  /* Reset document flow to block for single-page printing */
+  body, html, #root {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Make containers fit exactly to standard A4/Letter size */
+  div[style*="display: flex"],
+  div[style*="display: grid"] {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Retain card border outline for document layout readability */
+  .card {
+    border: 1px solid var(--border) !important;
+    box-shadow: none !important;
+    margin-bottom: 24px !important;
+    padding: 20px !important;
+    background: white !important;
+    page-break-inside: avoid;
+  }
+}
